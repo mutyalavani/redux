@@ -3,10 +3,22 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {Provider} from 'react-redux';
+import {combineReducers,createStore} from 'redux';
+import actorsReducer from './Reducers/actorsReducer';
+import cricketersReducer from './Reducers/cricketersReducer';
+import politiciansReducer from './Reducers/politiciansReducer';
+import scientistsReducer from './Reducers/scientistsReducer';
 
+let store=createStore(combineReducers
+  ({
+  actorsReducer,cricketersReducer,politiciansReducer,scientistsReducer
+  }))
 ReactDOM.render(
   <React.StrictMode>
+    <Provider store={store}>
     <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
